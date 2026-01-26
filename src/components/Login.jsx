@@ -49,8 +49,12 @@ function Login({ fetchBooks }) {
           <div className="form-group">
             <label htmlFor="role">Login As</label>
             <select id="role" value={role} onChange={(e) => setRole(e.target.value)} className="role-select">
-              <option value="student">Student</option>
-              <option value="admin">Admin</option>
+              <option className="Option" value="student">
+                Student
+              </option>
+              <option className="Option" value="admin">
+                Admin
+              </option>
             </select>
           </div>
 

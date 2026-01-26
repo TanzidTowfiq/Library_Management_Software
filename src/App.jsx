@@ -1,25 +1,25 @@
-import { Routes, Route, useNavigate } from "react-router-dom";
-import { useState, useEffect } from "react";
-import axios from "axios";
+import axios from 'axios';
+import { useEffect, useState } from 'react';
+import { Route, Routes, useNavigate } from 'react-router-dom';
 
-import Login from "./components/Login";
-import Register from "./components/Register";
-import AdminPanel from "./components/AdminPanel";
-import StudentPanel from "./components/StudentPanel";
-import ProtectedRoute from "./components/ProtectedRoute";
+import AdminPanel from './components/AdminPanel';
+import Login from './components/Login';
+import ProtectedRoute from './components/ProtectedRoute';
+import Register from './components/Register';
+import StudentPanel from './components/StudentPanel';
 
 function App() {
   const [books, setBooks] = useState([]);
-  const [search, setSearch] = useState("");
+  const [search, setSearch] = useState('');
   const navigate = useNavigate();
 
   // Fetch books from backend
   const fetchBooks = async () => {
     try {
-      const res = await axios.get("http://localhost:5000/api/books");
+      const res = await axios.get('http://localhost:5000/api/books');
       setBooks(res.data);
     } catch (err) {
-      console.log("Error fetching books:", err);
+      console.log('Error fetching books:', err);
     }
   };
 
@@ -30,7 +30,7 @@ function App() {
   // Add book
   const addBook = async (book) => {
     try {
-      await axios.post("http://localhost:5000/api/books", book);
+      await axios.post('http://localhost:5000/api/books', book);
       fetchBooks();
     } catch (err) {
       console.log(err);
@@ -71,11 +71,7 @@ function App() {
         element={
           <ProtectedRoute role="admin">
             <AdminPanel
-              books={books.filter(
-                (b) =>
-                  b.title.toLowerCase().includes(search.toLowerCase()) ||
-                  b.author.toLowerCase().includes(search.toLowerCase())
-              )}
+              books={books.filter((b) => b.title.toLowerCase().includes(search.toLowerCase()) || b.author.toLowerCase().includes(search.toLowerCase()))}
               addBook={addBook}
               deleteBook={deleteBook}
               issueBook={issueBook}
@@ -92,11 +88,7 @@ function App() {
         element={
           <ProtectedRoute role="student">
             <StudentPanel
-              books={books.filter(
-                (b) =>
-                  b.title.toLowerCase().includes(search.toLowerCase()) ||
-                  b.author.toLowerCase().includes(search.toLowerCase())
-              )}
+              books={books.filter((b) => b.title.toLowerCase().includes(search.toLowerCase()) || b.author.toLowerCase().includes(search.toLowerCase()))}
               setSearch={setSearch}
               onRequestBook={fetchBooks}
               onToggleFavorite={fetchBooks}
