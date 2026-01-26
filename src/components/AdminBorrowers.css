@@ -1,0 +1,160 @@
+.admin-borrowers {
+  background: var(--surface);
+  border-radius: var(--radius-lg);
+  padding: 2rem;
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--border-color);
+}
+
+.admin-borrowers h2 {
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+  color: var(--text-primary);
+}
+
+.borrowers-list {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.borrower-card {
+  animation: slideInUp 0.4s ease-out;
+  animation-fill-mode: both;
+  background: var(--background);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  transition: all 0.2s ease;
+}
+
+.borrower-card:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+
+.borrower-header {
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid var(--border-color);
+}
+
+.borrower-info {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.borrower-rank {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--primary-color);
+  background: var(--background);
+  width: 3rem;
+  height: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  border: 2px solid var(--primary-color);
+}
+
+.borrower-name {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 0.25rem;
+}
+
+.borrower-count {
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+}
+
+.borrowed-books-list {
+  margin-top: 1rem;
+}
+
+.borrowed-books-list h4 {
+  font-size: 1rem;
+  color: var(--text-primary);
+  margin-bottom: 1rem;
+}
+
+.borrowed-book-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  background: var(--surface);
+  border-radius: var(--radius);
+  margin-bottom: 0.75rem;
+  gap: 1rem;
+}
+
+.book-details {
+  display: flex;
+  gap: 0.75rem;
+  flex: 1;
+}
+
+.book-icon-small {
+  font-size: 1.5rem;
+  flex-shrink: 0;
+}
+
+.book-title-small {
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 0.25rem;
+  font-size: 0.9375rem;
+}
+
+.book-author-small {
+  color: var(--text-secondary);
+  font-size: 0.8125rem;
+  margin-bottom: 0.25rem;
+}
+
+.borrowed-date-small {
+  color: var(--text-secondary);
+  font-size: 0.75rem;
+}
+
+.loading-state {
+  text-align: center;
+  padding: 2rem;
+  color: var(--text-secondary);
+}
+
+.empty-state {
+  text-align: center;
+  padding: 4rem 2rem;
+  color: var(--text-secondary);
+}
+
+.empty-icon {
+  font-size: 4rem;
+  margin-bottom: 1rem;
+  opacity: 0.5;
+}
+
+.empty-state h3 {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+  color: var(--text-primary);
+}
+
+.empty-state p {
+  font-size: 0.875rem;
+}
+
+@media (max-width: 768px) {
+  .borrowed-book-item {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .borrowed-book-item button {
+    width: 100%;
+  }
+}
