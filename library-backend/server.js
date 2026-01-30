@@ -22,9 +22,6 @@ connectDB()
     return seedUsers();
   })
   .then(() => {
-    return seedBooks();
-  })
-  .then(() => {
     startServer();
   })
   .catch((err) => {
